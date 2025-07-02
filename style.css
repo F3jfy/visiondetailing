@@ -801,24 +801,24 @@
 }
 
 
-/* --- RESPONSIVE TABLE FOR SMALLER SCREENS (Further Refined) --- */
+
+/* --- RESPONSIVE TABLE FOR SMALLER SCREENS --- */
 @media (max-width: 768px) {
   /* Packages container adjustments */
   .packages-container {
-    flex-direction: column;
-    align-items: center; /* This is key for centering individual items in a column flexbox */
-    gap: 1.5rem;
+    display: block; /* Stays as block for easier centering of children */
     margin-bottom: 2rem;
-    padding: 0; /* Remove padding here to allow package cards to take full width */
-    width: 100%; /* Ensure container takes full width */
+    padding: 0; /* Remove padding here to directly control package margins */
+    width: 100%;
   }
 
   .package {
-    width: calc(100% - 2rem); /* Calculate width to be 100% minus desired horizontal padding */
-    max-width: 400px; /* Keep max-width to prevent them from becoming too wide */
-    padding: 2rem 1rem; /* Adjust padding here to control inner spacing */
-    margin-left: auto; /* Auto margins help with centering */
-    margin-right: auto; /* Auto margins help with centering */
+    /* New styling for smaller appearance on phone */
+    width: calc(100% - 4rem); /* Takes 100% of parent minus 2rem on each side */
+    max-width: 400px; /* Even smaller max-width for the cards themselves */
+    padding: 1.5rem; /* Slightly reduced internal padding */
+    margin: 0 auto 1.5rem auto; /* Center the package card itself and add bottom margin */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Slightly softer shadow for smaller cards */
   }
 
   /* ... rest of your mobile pricing table styles ... */
