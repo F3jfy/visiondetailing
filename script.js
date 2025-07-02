@@ -13,34 +13,36 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
+// In your script.js
 document.addEventListener("DOMContentLoaded", function () {
   const showMoreBtn = document.getElementById("showMoreBtn");
   const showLessBtn = document.getElementById("showLessBtn");
   const hiddenGalleryItems = document.querySelectorAll(".hidden-gallery-item");
 
   showMoreBtn.addEventListener("click", () => {
-    hiddenGalleryItems.forEach((item, index) => {
-      // Make the stagger delay shorter
-      setTimeout(() => {
+    hiddenGalleryItems.forEach(item => {
+      item.style.display = "block"; // Make it block first to allow max-height transition
+      // Use requestAnimationFrame to ensure display change takes effect before adding class
+      requestAnimationFrame(() => {
         item.classList.add("show-item");
-      }, index * 20); // Changed from 100 to 20
+      });
     });
     showMoreBtn.style.display = "none";
     showLessBtn.style.display = "inline-block";
   });
 
   showLessBtn.addEventListener("click", () => {
-    hiddenGalleryItems.forEach((item, index) => {
-      // Make the stagger delay shorter
-      setTimeout(() => {
-        item.classList.remove("show-item");
-      }, (hiddenGalleryItems.length - 1 - index) * 10); // Changed from 50 to 10
+    hiddenGalleryItems.forEach(item => {
+      item.classList.remove("show-item"); // Start the collapse animation
+      // Listen for the end of the transition, then set display: none
+      item.addEventListener('transitionend', function handler() {
+        if (!item.classList.contains('show-item')) { // Only hide if it's truly collapsed
+          item.style.display = "none";
+          item.removeEventListener('transitionend', handler); // Remove listener to prevent multiple calls
+        }
+      });
     });
-
-    // Reduce the total delay before hiding buttons
-    setTimeout(() => {
-      showLessBtn.style.display = "none";
-      showMoreBtn.style.display = "inline-block";
-    }, hiddenGalleryItems.length * 10 + 50); // Adjusted total delay
+    showLessBtn.style.display = "none";
+    showMoreBtn.style.display = "inline-block";
   });
 });

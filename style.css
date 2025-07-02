@@ -453,21 +453,60 @@
     border-color: #aaaaff;
     color: #444488;
   }
-/* Hidden extra gallery section */
+/* In your style.css, find these rules and update them */
+
+/* In your style.css, find these rules and update them */
+
 /* Initially hide the images with this class */
 .hidden-gallery-item {
-  display: none; /* Hide them by default */
-  /* You can add initial opacity/transform for smooth reveal */
+  display: none; /* Start completely hidden, removed from flow */
   opacity: 0;
-  transform: translateY(20px);
+  max-height: 0; /* Ensures no height is taken up */
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(10px); /* Initial state for animation */
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease; /* Transition for collapse/expand */
 }
 
 /* When the "show" class is added (by JavaScript), make them visible */
 .hidden-gallery-item.show-item {
-  display: block;
+  display: block; /* Make them part of the flow for animation */
   opacity: 1;
+  max-height: 500px; /* Sufficient height to show content; adjust if your images are taller */
+  pointer-events: auto;
   transform: translateY(0);
-  /* Make the transition faster */
-  transition: opacity 0.2s ease, transform 0.2s ease; /* Changed from 0.5s to 0.2s */
 }
+
+
+/* IMPORTANT: Review your media queries for gallery-grid img */
+
+@media (max-width: 992px) { /* Adjust breakpoint for tablets */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* This rule specifically hides the 3rd column for tablets.
+     If you have more than 3 initial images, or want to ensure hidden items
+     don't affect the tablet layout until revealed, this needs careful thought.
+     For now, it will hide the 3rd image of the *visible* set on tablets.
+     If your hidden-gallery-item start from image 4, this rule won't affect them directly. */
+  .gallery-grid img:nth-child(3) { /* Changed from 3n to 3 to target specifically the 3rd child */
+    display: none; /* Hide the 3rd image on tablets */
+  }
+  /* Ensure other images remain visible on tablet */
+  .gallery-grid img:nth-child(-n + 2), /* Ensure first two are always visible if not hidden-gallery-item */
+  .gallery-grid .hidden-gallery-item.show-item { /* Ensure shown items are block */
+      display: block;
+  }
+}
+
+/* For phones, ensure it's still 1 column */
+@media (max-width: 600px) { /* Adjust breakpoint for phones */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Ensure all images display on phones, overriding any tablet-specific hides */
+  .gallery-grid img {
+    display: block !important; /* Use !important to override tablet display: none for 3rd image */
+  }
+} 
 
