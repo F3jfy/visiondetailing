@@ -178,6 +178,7 @@
     border-radius: 25px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(203, 108, 230, 0.3);
+    border: none;
   }
   .cta:hover {
     background: #a955d1;
@@ -510,3 +511,157 @@
   }
 } 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Form Styling - Modernized */
+.contact-form-container {
+  background: #ffffff; /* Keep it clean, maybe a very light grey if you prefer #fcfcfc */
+  padding: 2.5rem; /* Slightly more padding */
+  border-radius: 12px; /* Softer rounded corners */
+  margin-top: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* More subtle, spread-out shadow */
+  border: 1px solid #eee; /* Light border for definition */
+}
+
+.contact-form-container h3 {
+  font-size: 2rem; /* Slightly larger for emphasis */
+  margin-bottom: 2rem; /* More space below heading */
+  color: #111;
+  text-align: center;
+  font-weight: 700; /* Bolder heading */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* More vertical space between fields */
+}
+
+/* Base styling for all inputs and textarea */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 1rem 1.2rem; /* Increased padding for a taller, more modern field */
+  border: 1px solid #dcdcdc; /* Lighter, softer border */
+  border-radius: 8px; /* Slightly more rounded corners for fields */
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #333; /* Default text color */
+  background-color: #fcfcfc; /* Very light background for fields */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focus state for all inputs and textarea */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #cb6ce6; /* Purple border on focus */
+  box-shadow: 0 0 0 4px rgba(203, 108, 230, 0.25); /* More prominent, soft glow */
+  background-color: #fff; /* White background on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Specific styling for the SELECT dropdown */
+.form-group select {
+  -webkit-appearance: none; /* Remove default dropdown arrow for Webkit */
+  -moz-appearance: none;    /* Remove default dropdown arrow for Firefox */
+  appearance: none;         /* Remove default dropdown arrow (standard) */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23666666"><polygon points="0,0 10,0 5,10"/></svg>'); /* Custom dropdown arrow (darker grey) */
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center; /* Position the arrow */
+  background-size: 0.8em auto; /* Size of the arrow */
+  cursor: pointer;
+}
+
+/* Style for the default/disabled option in select (placeholder effect) */
+.form-group select option[disabled]:first-child {
+  color: #888;
+}
+/* Ensure chosen option is not grey */
+.form-group select:valid {
+  color: #333;
+}
+
+
+/* Placeholder styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999; /* Slightly darker placeholder text */
+  opacity: 1; /* Ensure consistent opacity across browsers */
+}
+
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing of textarea */
+  min-height: 120px; /* Slightly taller textarea */
+}
+
+/* Submit Button Styling */
+.contact-form .cta {
+  width: 100%;
+  max-width: 320px; /* Slightly wider button */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2.5rem; /* More padding for a bolder button */
+  font-size: 1.15rem; /* Slightly larger text */
+  font-weight: 600; /* Bolder text */
+  border-radius: 30px; /* More rounded button */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.contact-form .cta:hover {
+  background: #a955d1;
+  transform: translateY(-3px) scale(1.01); /* Slight lift and scale */
+  box-shadow: 0 8px 16px rgba(169, 85, 209, 0.4); /* More prominent hover shadow */
+}
+
+/* Media Queries for form responsiveness */
+@media (max-width: 600px) {
+  .contact-form-container {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .contact-form-container h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea,
+  .form-group select {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .form-group select {
+    background-position: right 1rem center; /* Adjust arrow position for smaller screens */
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+  }
+
+  .contact-form .cta {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    max-width: 100%; /* Button takes full width on small screens */
+  }
+}
