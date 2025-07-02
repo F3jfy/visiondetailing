@@ -325,83 +325,6 @@
     outline: none;
   }
 
-  .packages-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  /* Package Cards - Improved hover with border color change and more prominent shadow */
-  .package {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 2rem;
-    width: 280px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
-    cursor: pointer;
-    color: #333;
-  }
-
-  .package h3 {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: inherit;
-    transition: color 0.35s ease;
-  }
-
-  .package ul {
-    margin-top: 1rem;
-    padding-left: 1.2rem;
-  }
-
-  .package li {
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-
-  /* Individuální barvy pro každý balíček */
-  .package.silver {
-    background-color: #f0f0f0;
-    border-color: #ccc;
-    color: #999;
-  }
-
-  .package.gold {
-    background-color: #fff3cd; /* jemná žlutá */
-    border-color: #f1c40f;
-    color: #d39e00;
-  }
-
-  .package.diamond {
-    background-color: #d9f0ff; /* jemná modrá */
-    border-color: #3498db;
-    color: #2980b9;
-  }
-
-  /* Hover efekt */
-  .package:hover {
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.18);
-    transform: translateY(-8px);
-    border-color: #cb6ce6; /* Purple border on hover */
-  }
-
-  @media (max-width: 768px) {
-    .packages-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .package {
-      width: 90vw; /* nebo max-width: 400px; podle potřeby */
-      padding: 2.5rem 1.5rem;
-    }
-  }
-
   html {
     scroll-padding-top: 80px; /* něco nad výšku navbaru, aby to odskočilo */
   }
@@ -665,3 +588,351 @@
     max-width: 100%; /* Button takes full width on small screens */
   }
 }
+
+/* Styling for the designer link in the footer */
+.footer-designer-link {
+  color: #cb6ce6; /* Your brand's purple color */
+  text-decoration: none; /* Remove underline by default */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-designer-link:hover {
+  color: #a955d1; /* A slightly darker purple on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+
+
+/* --- PACKAGES CONTAINER & CARDS (Further Adjusted for consistency) --- */
+.packages-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.package {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.package h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: inherit;
+  transition: color 0.35s ease;
+  font-size: 1.5rem;
+}
+
+.package ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  list-style: disc;
+  flex-grow: 1;
+}
+
+.package li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Individual colors for each package card - NOW EVEN SOFTER FOR BETTER HARMONY */
+.package.silver {
+  background-color: #fcfcfc; /* Very light grey, almost white */
+  border-color: #e6e6e6; /* Soft grey border */
+  color: #555;
+}
+
+.package.gold {
+  background-color: #fefdf5; /* Softer, creamier yellow */
+  border-color: #ffe08a; /* Lighter gold border */
+  color: #c09000; /* Softer gold text */
+}
+
+.package.diamond {
+  background-color: #f5fafd; /* Very subtle blue */
+  border-color: #aed9f9; /* Lighter blue border */
+  color: #2e83b8; /* Softer blue text */
+}
+
+.package.interior {
+  background-color: #f8f8ff; /* Slightly refined light purple for interior */
+  border-color: #d8d8ff; /* Matching border */
+  color: #5d5db8; /* Matching text color */
+}
+
+
+/* Package Card Hover effect */
+.package:hover {
+  box-shadow: 0 15px 28px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  border-color: #cb6ce6;
+}
+.package.silver:hover { color: #111; }
+.package.gold:hover { color: #111; }
+.package.diamond:hover { color: #111; }
+.package.interior:hover { color: #111; }
+
+
+/* --- PRICING TABLE STYLING (Refined Colors and Style) --- */
+.price-table-section {
+  padding: 0 1rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.price-table-container {
+  max-width: 904px; /* Matches total width of 3 package cards + gaps */
+  margin: 0 auto;
+  background-color: #fff; /* Keep base white for container */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Consistent with package card default shadow */
+  border: 1px solid #e0e0e0; /* Consistent with package card default border */
+}
+
+.price-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.price-table-container th,
+.price-table-container td {
+  padding: 1.2rem 1rem;
+  border: none; /* Removed all cell borders for a cleaner look */
+  font-size: 1rem;
+  color: #333;
+  /* Add subtle horizontal borders only */
+  border-bottom: 1px solid #f0f0f0;
+}
+/* No bottom border on the last row of the body */
+.price-table-container tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Header row styling - More prominent, but sleek */
+.price-table-container thead th {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1.5rem 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  background-color: #cb6ce6; /* Your brand purple */
+  position: sticky; /* Makes header stick when scrolling if table is long */
+  top: 0;
+  z-index: 1; /* Ensures header stays above content */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for sticky header */
+}
+
+/* Specific header border-radius (corners of the table top) */
+.price-table-container thead tr {
+    background-color: #cb6ce6;
+}
+.price-table-container .header-balicek {
+  border-top-left-radius: 12px;
+}
+.price-table-container .header-velky-vuz {
+  border-top-right-radius: 12px;
+}
+
+
+/* Row colors - MATCHING THE PACKAGE CARDS EXACTLY with softer shades */
+.price-table-container .row-silver td {
+  background-color: #fcfcfc;
+  color: #555;
+}
+
+.price-table-container .row-gold td {
+  background-color: #fefdf5;
+  color: #c09000;
+}
+
+.price-table-container .row-diamond td {
+  background-color: #f5fafd;
+  color: #2e83b8;
+}
+
+/* Package name column styling in table */
+.price-table-container .package-name {
+  font-weight: 600;
+  text-align: left;
+  padding-left: 2rem;
+  font-size: 1rem; /* Consistent with other cell content */
+  color: #111; /* Stronger color for emphasis */
+}
+
+/* Hover effect for data rows - More subtle */
+.price-table-container tbody tr {
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.price-table-container tbody tr:hover {
+  transform: translateY(-3px); /* Slightly more lift for impact */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* More visible shadow on hover */
+  /* Remove individual cell background change on hover, let the row background handle it */
+}
+/* Ensure row colors are respected on hover by changing the TR background */
+.price-table-container tbody tr.row-silver:hover { background-color: #f2f2f2; }
+.price-table-container tbody tr.row-gold:hover { background-color: #fff5cc; }
+.price-table-container tbody tr.row-diamond:hover { background-color: #dff0f9; }
+
+
+/* Specific border-radius for bottom corners of the table */
+.price-table-container tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.price-table-container tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+
+/* --- RESPONSIVE TABLE FOR SMALLER SCREENS (Further Refined) --- */
+@media (max-width: 768px) {
+  /* Packages container adjustments (already good) */
+  .packages-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .package {
+    width: 90vw;
+    max-width: 400px;
+    padding: 2rem 1.5rem;
+  }
+
+
+  /* Price table container adjustments for mobile */
+  .price-table-container {
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  .price-table-container table {
+    display: block;
+  }
+
+  .price-table-container thead {
+    display: none;
+  }
+
+  .price-table-container tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .price-table-container tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #f0f0f0;
+  }
+
+  .price-table-container tr:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Specific row colors on mobile - ENSURE CONSISTENCY with softer shades */
+  .price-table-container .row-silver {
+    background-color: #fcfcfc;
+  }
+  .price-table-container .row-gold {
+    background-color: #fefdf5;
+  }
+  .price-table-container .row-diamond {
+    background-color: #f5fafd;
+  }
+  /* Interior specific mobile row colors */
+  .price-table-container .row-clean {
+    background-color: #f8f8ff;
+  }
+  .price-table-container .row-average {
+    background-color: #fefdf5;
+  }
+  .price-table-container .row-heavily-contaminated {
+    background-color: #f5fafd;
+  }
+
+
+  /* Ensure background changes on hover/tap for each card */
+  .price-table-container .row-silver:hover { background-color: #f2f2f2; }
+  .price-table-container .row-gold:hover { background-color: #fff5cc; }
+  .price-table-container .row-diamond:hover { background-color: #dff0f9; }
+  /* Interior specific mobile hover colors */
+  .price-table-container .row-clean:hover { background-color: #e0e0ff; }
+  .price-table-container .row-average:hover { background-color: #fff5cc; }
+  .price-table-container .row-heavily-contaminated:hover { background-color: #dff0f9; }
+
+
+  .price-table-container td {
+    display: block;
+    border: none; /* No vertical borders */
+    border-bottom: 1px solid #f8f8f8; /* Very subtle horizontal separator */
+    position: relative; /* Keep for pseudo-elements */
+    padding: 0.8rem 1.5rem; /* Consistent padding for content */
+    text-align: right; /* Align value to the right */
+    font-size: 1rem;
+    color: #333;
+    padding-left: 50%; /* Make space for the label on the left */
+  }
+  /* Remove border for the last cell in a mobile card */
+  .price-table-container tr td:last-child {
+    border-bottom: none;
+  }
+
+
+  /* Data labels using pseudo-elements - REFINED POSITIONING & STYLING */
+  .price-table-container td:not(:first-child):before { /* Target only data cells, not the package name */
+    content: attr(data-label);
+    position: absolute;
+    left: 1.5rem; /* Align left with cell padding */
+    width: calc(50% - 2.5rem); /* Adjust width to make space for right-aligned value */
+    white-space: nowrap;
+    font-weight: 600; /* Make labels bolder */
+    text-align: left; /* Align label to the left */
+    color: #666; /* Darker grey for labels */
+    font-size: 0.9rem; /* Slightly smaller font for labels */
+    top: 50%; /* Vertically center the label */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+  }
+
+
+  /* Special styling for the first cell (Package Name) - Adjusted colors */
+  .price-table-container td:first-child {
+    background-color: #fefefe; /* Even lighter background for the title part */
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #111;
+    border-bottom: 1px solid #ededed; /* Softer separator */
+  }
+
+  .price-table-container td:first-child:before {
+    display: none; /* Hide the generic data-label for the package name cell */
+  }
+
+  
+  }
