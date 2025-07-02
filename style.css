@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+.logo img {
+  height: 40px; /* uprav podle potřeby */
+  display: block;
+}
+
+
+
+
+
+.navbar {
+    width: calc(100% + 4rem); /* 2rem + 2rem z body paddingu */
+  margin-left: -2rem;
+  margin-right: -2rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1001; /* vyšší než sidebar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+/* odkazy */
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #666;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: #111;
+  transition: color 0.3s ease;
+  position: relative;    /* přidat pozici */
+  z-index: 3000;         /* dost vysoký index, aby byl nad menu */
+}
+
+
+/* Barva hamburgeru při aktivním menu */
+.menu-toggle.active {
+  color: #cb6ce6;
+}
+
+
+/* MOBILNÍ MENU */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Základní stav: menu schované mimo obrazovku */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    padding-top: 4rem;
+    gap: 1.5rem;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Styl tlačítek - odkazů */
+  .nav-links a {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.8rem 1rem;
+    border-radius: 25px;
+    background: #111;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+
+ .nav-links a:hover,
+.nav-links a:focus {
+  background-color: #a955d1;  /* tmavší fialová při hoveru */
+  box-shadow: 0 6px 12px rgba(169, 85, 209, 0.5);
+  transform: translateY(-3px);
+  color: #fff;
+  outline: none;
+}
+}
+}
+
+
+
+
+
+
+
+
+header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+header h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+.cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: #cb6ce6;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+.cta:hover {
+  background: #a955d1;
+}
+
+
+.services, .gallery, .contact {
+  max-width: 900px;
+  margin: 0 auto 5rem auto;
+}
+.services h2, .gallery h2, .contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.service {
+  background: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  color: #111;
+  user-select: none;
+}
+
+.service:hover {
+  background-color: #cb6ce6;  /* fialová */
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.contact p {
+  margin-bottom: 0.5rem;
+}
+iframe {
+  width: 100%;
+  height: 300px;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .cta {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+.btn-pricing {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background-color: #cb6ce6;
+  color: white;
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(203, 108, 230, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-pricing:hover,
+.btn-pricing:focus {
+  background-color: #a955d1;
+  box-shadow: 0 6px 12px rgba(169, 85, 209, 0.5);
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.packages-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.package {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: 
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.35s ease;
+  cursor: pointer;
+  color: #333;
+}
+
+.package h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: inherit;
+  transition: color 0.35s ease;
+}
+
+.package ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.package li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Individuální barvy pro každý balíček */
+.package.silver {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+  color: #999;
+}
+
+.package.gold {
+  background-color: #fff3cd; /* jemná žlutá */
+  border-color: #f1c40f;
+  color: #d39e00;
+}
+
+.package.diamond {
+  background-color: #d9f0ff; /* jemná modrá */
+  border-color: #3498db;
+  color: #2980b9;
+}
+
+
+/* Hover efekt */
+.package:hover {
+  box-shadow: 0 15px 25px rgba(0,0,0,0.18);
+  transform: translateY(-8px);
+  /* fialová rámečku */
+}
+
+
+@media (max-width: 768px) {
+  .packages-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .package {
+    width: 90vw; /* nebo max-width: 400px; podle potřeby */
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+html {
+  scroll-padding-top: 80px; /* něco nad výšku navbaru, aby to odskočilo */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.about-section {
+   padding: 4rem 2rem 2.5rem 2rem;
+  background: #f0f0f0; /* jemně fialové pozadí */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(203, 108, 230, 0.15);
+  padding: 2.5rem 2rem;
+  font-size: 1.15rem;
+  color: #4b3e72; /* tmavší fialová */
+  line-height: 1.7;
+  font-weight: 400;
+  text-align: left;   /* změněno z center na left */
+  max-width: 900px;
+  margin: 0 auto 5rem auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.about-section h2 {
+  font-size: 1.75rem;         /* menší nadpis */
+  font-weight: 700;
+  color: #000000;             /* černý nadpis */
+  margin-bottom: 1rem;
+  letter-spacing: 1.5px;
+  text-shadow: none;          /* odstraněný stín */
+}
+
+.about-section p {
+  max-width: 700px;
+  margin: 0; /* odstraněno centrování */
+}
+
