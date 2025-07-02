@@ -5,11 +5,13 @@
 }
 body {
   padding-top: 80px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
   font-family: 'Space Grotesk', sans-serif;
   background: #ffffff;
   color: #111;
   line-height: 1.6;
-  padding: 2rem;
   overflow-x: hidden;
 }
 .logo img {
@@ -22,24 +24,19 @@ body {
 
 
 .navbar {
-    width: calc(100% + 4rem); /* 2rem + 2rem z body paddingu */
-  margin-left: -2rem;
-  margin-right: -2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
-  position: fixed;
-top: 0;
-left: 0;
-right: 0;
-width: 100vw;
-z-index: 1001;
-  z-index: 1001; /* vyšší než sidebar */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1001;
 }
 
 .nav-links {
