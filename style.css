@@ -803,18 +803,27 @@
 
 /* --- RESPONSIVE TABLE FOR SMALLER SCREENS (Further Refined) --- */
 @media (max-width: 768px) {
-  /* Packages container adjustments (already good) */
+  /* Packages container adjustments */
   .packages-container {
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* This is key for centering individual items in a column flexbox */
     gap: 1.5rem;
     margin-bottom: 2rem;
+    padding: 0; /* Remove padding here to allow package cards to take full width */
+    width: 100%; /* Ensure container takes full width */
   }
+
   .package {
-    width: 90vw;
-    max-width: 400px;
-    padding: 2rem 1.5rem;
+    width: calc(100% - 2rem); /* Calculate width to be 100% minus desired horizontal padding */
+    max-width: 400px; /* Keep max-width to prevent them from becoming too wide */
+    padding: 2rem 1rem; /* Adjust padding here to control inner spacing */
+    margin-left: auto; /* Auto margins help with centering */
+    margin-right: auto; /* Auto margins help with centering */
   }
+
+  /* ... rest of your mobile pricing table styles ... */
+  /* (all the .price-table-container rules for mobile should remain as they were) */
+}
 
 
   /* Price table container adjustments for mobile */
@@ -932,7 +941,4 @@
 
   .price-table-container td:first-child:before {
     display: none; /* Hide the generic data-label for the package name cell */
-  }
-
-  
   }
