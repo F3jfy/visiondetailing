@@ -194,8 +194,23 @@ header p {
 }
 .service-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  /* Default for PC: 4 columns */
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 992px) { /* Adjust breakpoint for tablets */
+  .service-list {
+    /* Tablet: 2x2 layout (assuming 4 services) */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) { /* Adjust breakpoint for phones */
+  .service-list {
+    /* Phone: 1x4 layout */
+    grid-template-columns: 1fr;
+  }
 }
 /* Updated: Service Card - Background color, border and slight lift */
 .service {
@@ -219,9 +234,11 @@ header p {
 /* Gallery Grid Styling */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Default: multiple columns on PC */
   gap: 1rem;
+  /* Default for PC: 3 columns */
+  grid-template-columns: repeat(3, 1fr);
 }
+
 .gallery-grid img {
   width: 100%; /* Ensures images fill their grid cell */
   height: 180px; /* Set a fixed height for smaller display */
@@ -229,10 +246,30 @@ header p {
   aspect-ratio: 4 / 3; /* Explicitly sets the 4x3 aspect ratio */
   border-radius: 10px;
 }
-/* Media query for smaller screens (e.g., phones) to stack images */
-@media (max-width: 600px) { /* Adjust breakpoint as needed */
+
+@media (max-width: 992px) { /* Adjust breakpoint for tablets */
   .gallery-grid {
-    grid-template-columns: 1fr; /* Force single column on mobile */
+    /* Tablet: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Hide the 3rd image on tablets if there are more than 2 */
+  .gallery-grid img:nth-child(3n) { /* This targets every 3rd image */
+    display: none;
+  }
+  /* Make sure images after the 2nd one are displayed correctly if there are more than 2 total but less than 3 in the hidden condition above */
+  .gallery-grid img:nth-child(-n + 2) {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) { /* Adjust breakpoint for phones */
+  .gallery-grid {
+    /* Phone: 1 column */
+    grid-template-columns: 1fr;
+  }
+  /* Ensure all images are displayed on phones */
+  .gallery-grid img {
+    display: block;
   }
 }
 
