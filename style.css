@@ -279,6 +279,22 @@
     }
   }
 
+
+  /* Contact Section Styling */
+.contact p a {
+  color: #cb6ce6; /* Your brand purple */
+  text-decoration: none; /* Remove underline by default */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.contact p a:hover {
+  color: #a955d1; /* Darker purple on hover */
+  text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+/* You might already have a general <a> tag style,
+   ensure this specific rule for .contact p a is more specific
+   or placed after any general link styles. */
   .contact p {
     margin-bottom: 0.5rem;
   }
@@ -449,26 +465,29 @@
 
 
 
-/* Contact Form Styling - Modernized */
+/* Contact Form Styling - More Prominent */
 .contact-form-container {
-  background: #ffffff; /* Keep it clean, maybe a very light grey if you prefer #fcfcfc */
-  padding: 2.5rem; /* Slightly more padding */
-  border-radius: 12px; /* Softer rounded corners */
-  margin-top: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* More subtle, spread-out shadow */
-  border: 1px solid #eee; /* Light border for definition */
+  background: #ffffff; /* Keep the background white as requested */
+  padding: 2.8rem;
+  border-radius: 16px;
+  margin-top: 3rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); /* Adjusted box-shadow to be more uniform */
+  border: 1px solid #dcdcdc;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-form-container h3 {
-  font-size: 2rem; /* Slightly larger for emphasis */
-  margin-bottom: 2rem; /* More space below heading */
-  color: #111;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #cb6ce6; /* CHANGE: Make the heading purple */
   text-align: center;
-  font-weight: 700; /* Bolder heading */
+  font-weight: 700;
 }
 
 .form-group {
-  margin-bottom: 1.5rem; /* More vertical space between fields */
+  margin-bottom: 1.8rem;
 }
 
 /* Base styling for all inputs and textarea */
@@ -478,41 +497,42 @@
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 1rem 1.2rem; /* Increased padding for a taller, more modern field */
-  border: 1px solid #dcdcdc; /* Lighter, softer border */
-  border-radius: 8px; /* Slightly more rounded corners for fields */
+  padding: 1.1rem 1.4rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #333; /* Default text color */
-  background-color: #fcfcfc; /* Very light background for fields */
+  font-size: 1.05rem;
+  color: #333;
+  background-color: #f8f8f8;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Focus state for all inputs and textarea */
+/* Focus state for all inputs and textarea - ALREADY PURPLE, GOOD! */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #cb6ce6; /* Purple border on focus */
-  box-shadow: 0 0 0 4px rgba(203, 108, 230, 0.25); /* More prominent, soft glow */
-  background-color: #fff; /* White background on focus */
-  outline: none; /* Remove default outline */
+  border-color: #cb6ce6; /* Your brand purple border */
+  box-shadow: 0 0 0 5px rgba(203, 108, 230, 0.3);
+  background-color: #ffffff;
+  outline: none;
 }
 
 /* Specific styling for the SELECT dropdown */
 .form-group select {
-  -webkit-appearance: none; /* Remove default dropdown arrow for Webkit */
-  -moz-appearance: none;    /* Remove default dropdown arrow for Firefox */
-  appearance: none;         /* Remove default dropdown arrow (standard) */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23666666"><polygon points="0,0 10,0 5,10"/></svg>'); /* Custom dropdown arrow (darker grey) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* CHANGE: Make the custom dropdown arrow purple */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23cb6ce6"><polygon points="0,0 12,0 6,12"/></svg>');
   background-repeat: no-repeat;
-  background-position: right 1.2rem center; /* Position the arrow */
-  background-size: 0.8em auto; /* Size of the arrow */
+  background-position: right 1.4rem center;
+  background-size: 0.9em auto;
   cursor: pointer;
 }
 
 /* Style for the default/disabled option in select (placeholder effect) */
 .form-group select option[disabled]:first-child {
-  color: #888;
+  color: #a0a0a0;
 }
 /* Ensure chosen option is not grey */
 .form-group select:valid {
@@ -523,46 +543,59 @@
 /* Placeholder styling */
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #999; /* Slightly darker placeholder text */
-  opacity: 1; /* Ensure consistent opacity across browsers */
+  color: #a8a8a8;
+  opacity: 1;
 }
 
 
 .form-group textarea {
-  resize: vertical; /* Allow vertical resizing of textarea */
-  min-height: 120px; /* Slightly taller textarea */
+  resize: vertical;
+  min-height: 140px;
 }
 
-/* Submit Button Styling */
+/* Submit Button Styling - ALREADY PURPLE, GOOD! */
 .contact-form .cta {
   width: 100%;
-  max-width: 320px; /* Slightly wider button */
+  max-width: 350px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem 2.5rem; /* More padding for a bolder button */
-  font-size: 1.15rem; /* Slightly larger text */
-  font-weight: 600; /* Bolder text */
-  border-radius: 30px; /* More rounded button */
+  padding: 1.1rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 35px;
+  background-color: #cb6ce6; /* Your brand purple */
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(203, 108, 230, 0.45);
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .contact-form .cta:hover {
   background: #a955d1;
-  transform: translateY(-3px) scale(1.01); /* Slight lift and scale */
-  box-shadow: 0 8px 16px rgba(169, 85, 209, 0.4); /* More prominent hover shadow */
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(169, 85, 209, 0.5);
 }
 
 /* Media Queries for form responsiveness */
 @media (max-width: 600px) {
   .contact-form-container {
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 1.8rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   }
 
   .contact-form-container h3 {
-    font-size: 1.7rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #cb6ce6; /* CHANGE: Ensure heading is purple on mobile too */
+  }
+
+  .form-group {
+    margin-bottom: 1.3rem;
   }
 
   .form-group input[type="text"],
@@ -570,22 +603,26 @@
   .form-group input[type="tel"],
   .form-group textarea,
   .form-group select {
-    padding: 0.8rem 1rem;
-    font-size: 0.95rem;
+    padding: 0.9rem 1.1rem;
+    font-size: 1rem;
+    border-radius: 8px;
   }
 
   .form-group select {
-    background-position: right 1rem center; /* Adjust arrow position for smaller screens */
+    /* CHANGE: Ensure custom dropdown arrow is purple on mobile */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23cb6ce6"><polygon points="0,0 12,0 6,12"/></svg>');
+    background-position: right 1.1rem center;
   }
 
   .form-group textarea {
-    min-height: 100px;
+    min-height: 120px;
   }
 
   .contact-form .cta {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    max-width: 100%; /* Button takes full width on small screens */
+    padding: 0.9rem 2.2rem;
+    font-size: 1.05rem;
+    max-width: 100%;
+    border-radius: 30px;
   }
 }
 
@@ -814,8 +851,8 @@
 
   .package {
     /* New styling for smaller appearance on phone */
-    width: calc(100% - 4rem); /* Takes 100% of parent minus 2rem on each side */
-    max-width: 400px; /* Even smaller max-width for the cards themselves */
+    width: calc(100% - 2rem); /* Takes 100% of parent minus 2rem on each side */
+    max-width: 460px; /* Even smaller max-width for the cards themselves */
     padding: 1.5rem; /* Slightly reduced internal padding */
     margin: 0 auto 1.5rem auto; /* Center the package card itself and add bottom margin */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Slightly softer shadow for smaller cards */
@@ -823,7 +860,7 @@
 
   /* ... rest of your mobile pricing table styles ... */
   /* (all the .price-table-container rules for mobile should remain as they were) */
-}
+}   
 
 
   /* Price table container adjustments for mobile */
@@ -913,7 +950,7 @@
 
   /* Data labels using pseudo-elements - REFINED POSITIONING & STYLING */
   .price-table-container td:not(:first-child):before { /* Target only data cells, not the package name */
-    content: attr(data-label);
+    content: attr(data-label); /* THIS IS THE KEY: pulls content from the data-label attribute */
     position: absolute;
     left: 1.5rem; /* Align left with cell padding */
     width: calc(50% - 2.5rem); /* Adjust width to make space for right-aligned value */
@@ -924,7 +961,7 @@
     font-size: 0.9rem; /* Slightly smaller font for labels */
     top: 50%; /* Vertically center the label */
     transform: translateY(-50%); /* Adjust for perfect vertical centering */
-  }
+}
 
 
   /* Special styling for the first cell (Package Name) - Adjusted colors */
