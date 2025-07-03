@@ -1313,3 +1313,121 @@
 .contact-info-line {
     justify-content: center; /* Zajistí centrování obsahu uvnitř flexboxu */
 }
+
+/* --- Styly pro hlavičku stránky ceníku (page-header) --- */
+.page-header {
+  padding-top: 120px; /* Více místa nahoře, aby se nepřekrýval s navbarem */
+  padding-bottom: 4rem; /* Více místa dole */
+  text-align: center;
+  background-color: #f8f8f8; /* Jemné pozadí */
+  border-bottom: 1px solid #eee; /* Jemná linka dole */
+  margin-bottom: 3rem; /* Mezera pod hlavičkou */
+}
+
+.page-header .header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Odsazení na okrajích */
+}
+
+.page-header h1 {
+  font-size: 3.2rem; /* Větší a výraznější */
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.page-header .subtitle {
+  font-size: 1.3rem; /* Větší podnadpis */
+  color: #666;
+  margin-bottom: 2rem; /* Více místa před odkazem */
+}
+
+.back-to-main-link {
+  display: inline-block;
+  color: #cb6ce6; /* Vaše fialová */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cb6ce6;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.back-to-main-link:hover {
+  background-color: #cb6ce6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(203, 108, 230, 0.3);
+}
+
+/* --- Styly pro nadpisy sekcí (section-heading) --- */
+.section-heading {
+  font-size: 2.5rem; /* Větší nadpis */
+  font-weight: 700;
+  color: #111; /* Tmavá barva */
+  text-align: center;
+  margin-bottom: 2.5rem; /* Více místa pod nadpisem */
+  margin-top: 0; /* Zajistí, že nebude mít zbytečný horní okraj */
+}
+
+/* --- Konzistentní mezery pro sekce --- */
+.section-spacing {
+  padding: 3rem 2rem; /* Vertikální a horizontální odsazení pro každou sekci */
+  max-width: 1100px; /* Omezí šířku obsahu sekce */
+  margin: 0 auto; /* Vycentruje sekci */
+}
+
+/* Upravíme stávající .packages-container, aby byl konzistentní s novými mezerami */
+.packages-container {
+  /* Původní styly */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  /* DŮLEŽITÉ: Odstraníme margin-bottom a padding, protože to řeší .section-spacing */
+  margin-bottom: 0; /* Nastavíme na 0, aby se nekřížily mezery */
+  padding: 0; /* Nastavíme na 0 */
+  /* NOVÉ PRO CENTROVÁNÍ CELÉHO KONTEJNERU BALÍČKŮ */
+  max-width: 1000px; /* Omezí maximální šířku kontejneru balíčků */
+  margin-left: auto; /* Vycentruje kontejner */
+  margin-right: auto; /* Vycentruje kontejner */
+}
+
+/* Upravíme stávající .price-table-section */
+.price-table-section {
+  /* Původní styly */
+  margin-top: 0; /* Nastavíme na 0, protože to řeší .section-spacing */
+  margin-bottom: 0; /* Nastavíme na 0 */
+  padding: 0; /* Nastavíme na 0 */
+}
+
+/* Media Queries pro responzivitu nadpisů */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  .page-header .subtitle {
+    font-size: 1.1rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+  .section-spacing {
+    padding: 2rem 1.5rem; /* Menší odsazení na mobilu */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  .page-header .subtitle {
+    font-size: 1rem;
+  }
+  .section-heading {
+    font-size: 1.8rem;
+  }
+}
