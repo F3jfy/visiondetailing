@@ -1,4 +1,4 @@
-  /* General transition for all elements that might have hover effects */
+
   * {
     margin: 0;
     padding: 0;
@@ -198,26 +198,25 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+    .service-list {
+  display: grid;
+  gap: 1.5rem; /* Zvětšena mezera pro lepší vizuál */
+  /* Default na PC: 2 sloupce */
+  grid-template-columns: repeat(2, 1fr); /* Toto zajistí 2 sloupce na větších obrazovkách */
+  max-width: 900px; /* Omezí šířku mřížky, aby se vycentrovala */
+  margin: 0 auto; /* Vycentruje samotnou mřížku služeb */
+}
+
+@media (max-width: 768px) { /* Od tohoto breakpointu níže se změní rozložení */
   .service-list {
-    display: grid;
-    gap: 1rem;
-    /* Default for PC: 4 columns */
-    grid-template-columns: repeat(4, 1fr);
+    /* Tablet / Menší obrazovky: 1 sloupec */
+    grid-template-columns: 1fr;
+    padding: 0 1rem; /* Může přidat malé odsazení na okrajích */
   }
+}
 
-  @media (max-width: 992px) { /* Adjust breakpoint for tablets */
-    .service-list {
-      /* Tablet: 2x2 layout (assuming 4 services) */
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 600px) { /* Adjust breakpoint for phones */
-    .service-list {
-      /* Phone: 1x4 layout */
-      grid-template-columns: 1fr;
-    }
-  }
+/* Starší @media (max-width: 600px) už není potřeba pro service-list,
+   protože 768px to už přepíná na 1 sloupec. */
   /* Updated: Service Card - Background color, border and slight lift */
   .service {
     background: #f0f0f0;
@@ -324,27 +323,30 @@
     }
   }
 
-  /* Pricing Button - Already good, just ensuring consistency */
-  .btn-pricing {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    background-color: #cb6ce6;
-    color: white;
-    font-weight: 600;
-    border-radius: 25px;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(203, 108, 230, 0.4);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-  }
 
-  .btn-pricing:hover,
-  .btn-pricing:focus {
-    background-color: #a955d1;
-    box-shadow: 0 6px 12px rgba(169, 85, 209, 0.5);
-    transform: translateY(-3px);
-    outline: none;
-  }
+.btn-pricing {
+  display: block; /* Změněno z inline-block na block, aby se mohlo centrovat marginem */
+  margin: 2rem auto 0 auto; /* Vycentruje tlačítko a přidá horní okraj */
+  padding: 0.75rem 2rem;
+  background-color: #cb6ce6;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(203, 108, 230, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  /* Přidáme max-width, aby se na velkých obrazovkách neroztahovalo moc */
+  max-width: 400px; /* Nastavte podle potřeby, aby nebylo moc široké */
+}
+
+.btn-pricing:hover,
+.btn-pricing:focus {
+  background-color: #a955d1;
+  box-shadow: 0 6px 12px rgba(169, 85, 209, 0.5);
+  transform: translateY(-3px);
+  outline: none;
+}
 
   html {
     scroll-padding-top: 80px; /* něco nad výšku navbaru, aby to odskočilo */
@@ -380,12 +382,6 @@
     padding-top: 10px;
   }
 
-  .about-section p {
-    max-width: 700px;
-    margin: 0; /* odstraněno centrování */
-    padding-left: 10px;   
-    padding-bottom: 15px;
-  }
 
   /* New: Hover effect for about section */
   .about-section:hover {
@@ -985,3 +981,453 @@
     display: none; /* Hide the generic data-label for the package name cell */
   }
   } 
+
+
+  /* --- Obecné styly pro sekce a text --- */
+.section-description {
+  font-size: 1.15rem;
+  color: #555;
+  text-align: center;
+  max-width: 700px;
+  margin: 0.5rem auto 3rem auto;
+  line-height: 1.6;
+}
+
+/* --- Hero sekce vylepšení --- */
+#hero {
+  padding-top: 80px; /* Aby se nepřekrýval s navbarem */
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative; /* Pro umístění hero obrázku, pokud ho dáte jako pozadí */
+  min-height: 550px; /* Zajistí dostatek místa, i když není obrázek */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Pro případné přesahy obrázku */
+}
+
+#hero h1 {
+  font-size: 3.5rem; /* Větší a výraznější */
+  font-weight: 700;
+  color: #111; /* Může být i vaše fialová, pokud chcete více brandu hned nahoře */
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hero .subtitle {
+  font-size: 1.4rem; /* Větší podnadpis */
+  color: #666;
+  margin-bottom: 2.5rem; /* Více místa před CTA */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.5rem; /* Mezera mezi tlačítky */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem; /* Více místa pod tlačítky */
+  flex-wrap: wrap; /* Pro responzivitu */
+}
+
+/* Primary CTA Button (hlavní výzva k akci) */
+.primary-cta {
+  background: #cb6ce6; /* Vaše fialová */
+  color: white;
+  padding: 1rem 2.5rem; /* Větší polstrování */
+  font-size: 1.3rem; /* Větší písmo */
+  font-weight: 700;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(203, 108, 230, 0.45);
+  border: none;
+  cursor: pointer;
+}
+
+.primary-cta:hover {
+  background: #a955d1;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(169, 85, 209, 0.5);
+}
+
+/* Secondary CTA Button (sekundární výzva k akci) */
+.secondary-cta {
+  background: transparent; /* Průhledné pozadí */
+  color: #cb6ce6; /* Fialový text */
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 2px solid #cb6ce6; /* Fialový rámeček */
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.secondary-cta:hover {
+  background: #cb6ce6; /* Fialové pozadí */
+  color: white; /* Bílý text */
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(203, 108, 230, 0.3);
+}
+
+.main-hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 3rem; /* Mezera mezi textem a obrázkem */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+
+/* --- Sekce Reference --- */
+.reviews-section {
+  max-width: 900px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 sloupce na větších obrazovkách, responzivní */
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.review-card .stars {
+  color: #FFD700; /* Zlatá barva pro hvězdičky */
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.review-card .review-text {
+  font-style: italic;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.review-card .reviewer-name {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: auto; /* Přilepí jméno na spodek, pokud je text různě dlouhý */
+}
+
+/* --- Kontaktní informace v sekci Kontakt --- */
+.contact-info-line {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.contact-info-line i {
+    color: #cb6ce6; /* Fialová pro ikony */
+    font-size: 1.3rem;
+}
+
+.contact-info-line a {
+    color: #cb6ce6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info-line a:hover {
+    color: #a955d1;
+    text-decoration: underline;
+}
+
+/* --- Responzivní úpravy --- */
+@media (max-width: 992px) {
+  #hero h1 {
+    font-size: 2.8rem;
+  }
+  #hero .subtitle {
+    font-size: 1.2rem;
+  }
+  .primary-cta, .secondary-cta {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    min-height: 450px;
+    margin-bottom: 3rem;
+  }
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+  #hero .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-ctas {
+    flex-direction: column; /* Tlačítka pod sebou na mobilu */
+    gap: 1rem;
+  }
+  .primary-cta, .secondary-cta {
+    width: 90%; /* Více se roztáhnou */
+    max-width: 300px;
+  }
+
+  .section-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Služby - ikony a text */
+  /* Původní styl pro nadpisy služeb - změníme barvu na tmavší */
+.services .service h3 {
+  font-size: 1.3rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #111; /* Změněno na tmavou barvu, nebude fialová defaultně */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease; /* Přidáme přechod pro barvu textu */
+}
+
+/* Barva ikony (můžeme nechat fialovou, nebo změnit s nadpisem) */
+.services .service h3 i {
+  font-size: 1.5rem;
+  color: #cb6ce6; /* Ponecháme fialovou nebo změníme na #111 */
+  transition: color 0.3s ease; /* Přidáme přechod pro barvu ikony */
+}
+
+/* Při HOVERU na CELOU KARTU .service */
+.service:hover h3,
+.service:hover h3 i { /* Když najedeme na kartu, změní se barva nadpisu a ikony */
+  color: #000000; /* Změní barvu textu a ikony na bílou */
+}
+  .services .service p {
+    font-size: 0.9rem;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr; /* Jeden sloupec na mobilu */
+    padding: 0 1rem;
+  }
+
+  .contact-info-line {
+      flex-direction: column; /* Kontaktní info pod sebou na mobilu */
+      align-items: center;
+      gap: 0.5rem;
+  }
+  .contact-info-line i {
+      margin-right: 0; /* Odebere mezeru, pokud je vedle textu */
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.8rem;
+  }
+  #hero .subtitle {
+    font-size: 0.9rem;
+  }
+  .primary-cta, .secondary-cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+
+/* --- Centrování hlavních nadpisů sekcí --- */
+.services h2,
+.gallery h2,
+.reviews-section h2,
+.contact h2,
+.about-section h2 { /* Přidání about-section h2 sem */
+  text-align: center; /* Vycentrování textu nadpisu */
+  max-width: 900px; /* Omezí šířku nadpisu pro lepší čitelnost */
+  margin-left: auto; /* Vycentrování samotného blokového prvku h2 */
+  margin-right: auto; /* Vycentrování samotného blokového prvku h2 */
+}
+
+/* --- Centrování popisků sekcí --- */
+.section-description {
+  text-align: center;
+  max-width: 700px; /* Omezí šířku popisku pro lepší čitelnost */
+  margin: 0.5rem auto 3rem auto; /* Vycentruje blokový prvek a přidá okraje */
+}
+
+/* --- Centrování nadpisu "O Nás" (již bylo v podstatě hotovo, ale zopakování pro jistotu) --- */
+.about-section {
+    text-align: center; /* Vycentruje veškerý text uvnitř sekce O nás */
+}
+/* Aby se nadpis 'O Nás' choval jako ostatní */
+.about-section h2 {
+    padding-left: 0; /* Odstraní původní odsazení */
+    padding-top: 0; /* Odstraní původní odsazení */
+    /* Všechny ostatní centrovací styly již definovány výše */
+}
+/* A text uvnitř 'O Nás' */
+.about-section p {
+    padding-left: 0; /* Odstraní původní odsazení */
+    text-align: center; /* Zajistí centrování textu */
+    max-width: 700px; /* Omezí šířku textu pro lepší čitelnost */
+    margin: 0 auto 1rem auto; /* Vycentruje blokový prvek odstavce */
+}
+
+/* --- Centrování kontaktních informací v sekci Kontakt --- */
+.contact-info-line {
+    justify-content: center; /* Zajistí centrování obsahu uvnitř flexboxu */
+}
+
+/* --- Styly pro hlavičku stránky ceníku (page-header) --- */
+.page-header {
+  padding-top: 120px; /* Více místa nahoře, aby se nepřekrýval s navbarem */
+  padding-bottom: 4rem; /* Více místa dole */
+  text-align: center;
+  background-color: #f8f8f8; /* Jemné pozadí */
+  border-bottom: 1px solid #eee; /* Jemná linka dole */
+  margin-bottom: 3rem; /* Mezera pod hlavičkou */
+}
+
+.page-header .header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Odsazení na okrajích */
+}
+
+.page-header h1 {
+  font-size: 3.2rem; /* Větší a výraznější */
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.page-header .subtitle {
+  font-size: 1.3rem; /* Větší podnadpis */
+  color: #666;
+  margin-bottom: 2rem; /* Více místa před odkazem */
+}
+
+.back-to-main-link {
+  display: inline-block;
+  color: #cb6ce6; /* Vaše fialová */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cb6ce6;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.back-to-main-link:hover {
+  background-color: #cb6ce6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(203, 108, 230, 0.3);
+}
+
+/* --- Styly pro nadpisy sekcí (section-heading) --- */
+.section-heading {
+  font-size: 2.5rem; /* Větší nadpis */
+  font-weight: 700;
+  color: #111; /* Tmavá barva */
+  text-align: center;
+  margin-bottom: 2.5rem; /* Více místa pod nadpisem */
+  margin-top: 0; /* Zajistí, že nebude mít zbytečný horní okraj */
+}
+
+/* --- Konzistentní mezery pro sekce --- */
+.section-spacing {
+  padding: 3rem 2rem; /* Vertikální a horizontální odsazení pro každou sekci */
+  max-width: 1100px; /* Omezí šířku obsahu sekce */
+  margin: 0 auto; /* Vycentruje sekci */
+}
+
+/* Upravíme stávající .packages-container, aby byl konzistentní s novými mezerami */
+.packages-container {
+  /* Původní styly */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  /* DŮLEŽITÉ: Odstraníme margin-bottom a padding, protože to řeší .section-spacing */
+  margin-bottom: 0; /* Nastavíme na 0, aby se nekřížily mezery */
+  padding: 0; /* Nastavíme na 0 */
+  /* NOVÉ PRO CENTROVÁNÍ CELÉHO KONTEJNERU BALÍČKŮ */
+  max-width: 1000px; /* Omezí maximální šířku kontejneru balíčků */
+  margin-left: auto; /* Vycentruje kontejner */
+  margin-right: auto; /* Vycentruje kontejner */
+}
+
+/* Upravíme stávající .price-table-section */
+.price-table-section {
+  /* Původní styly */
+  margin-top: 0; /* Nastavíme na 0, protože to řeší .section-spacing */
+  margin-bottom: 0; /* Nastavíme na 0 */
+  padding: 0; /* Nastavíme na 0 */
+}
+
+/* Media Queries pro responzivitu nadpisů */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  .page-header .subtitle {
+    font-size: 1.1rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+  .section-spacing {
+    padding: 2rem 1.5rem; /* Menší odsazení na mobilu */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  .page-header .subtitle {
+    font-size: 1rem;
+  }
+  .section-heading {
+    font-size: 1.8rem;
+  }
+}

@@ -2,124 +2,192 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vision Detailing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>Vision Detailing: Prémiová Péče o Vaše Auto v Praze</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
 <nav class="navbar">
   <a href="#" class="logo">
-    <img src="VisionDetailing.png " alt="Vision Detailing Logo" />
+    <img src="VisionDetailing.png" alt="Vision Detailing Logo - Prémiová péče o auta" />
   </a>
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#">Úvod</a></li>
+    <li><a href="#hero">Úvod</a></li>
     <li><a href="#about">O nás</a></li>
     <li><a href="#services">Služby</a></li>
-    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#gallery">Naše Práce</a></li>
+    <li><a href="#reviews">Reference</a></li> <li><a href="#contact">Kontakt</a></li>
   </ul>
 </nav>
 
-  <header>
-    <h1>Vision Detailing</h1>
-    <p>Prémiová péče o vaše auto</p>
-    <a href="#contact" class="cta">Objednat</a>
-  </header>
-
-
-
-  <section id="services" class="services">
-    <h2>Služby</h2>
-    <div class="service-list">
-      <div class="service">Keramická ochrana laku</div>
-      <div class="service">Tepování interiéru</div>
-      <div class="service">Leštění karoserie</div>
-      <div class="service">Ochrana skel a kol</div>
+<header id="hero">
+  <div class="hero-content">
+    <h1>VisionDetailing</h1>
+    <p class="subtitle">Prémiová péče o vaše auto s bezkonkurenční precizností v Praze a okolí.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="cta primary-cta">Získejte Nezávaznou Nabídku</a>
+      <a href="#services" class="cta secondary-cta">Prohlédnout Služby</a>
     </div>
+    <div class="hero-image-placeholder">
+        <img src="photo1.webp" alt="Vyleštěné auto Vision Detailing" class="main-hero-image">
+    </div>
+  </div>
+</header>
 
-      <div class="pricing-button-wrapper" style="text-align:center;">
-  <a href="cenik.html" class="btn-pricing">Ceník a balíčky</a>
-</div>
-
-  </section>
-
-<section id="about" class="about-section" style="max-width: 900px; margin: 0 auto 5rem auto; padding: 0 1rem;">
-  <h2>O nás</h2>
+<section id="about" class="about-section">
+  <h2>O Nás: Vaše Auto, Naše Vášeň</h2>
   <p>
-    Vision Detailing nabízí prvotřídní péči o váš automobil s důrazem na kvalitu, preciznost a individuální přístup. Naším cílem je překonat vaše očekávání a zajistit, aby váš vůz vypadal dokonale. Neustále se zdokonalujeme, abychom byli spolehlivým partnerem v péči o auta nejen v Praze, ale po celé ČR. Objednejte se a přesvědčte se sami!
+    Vision Detailing nabízí prvotřídní péči o váš automobil s důrazem na kvalitu, preciznost a individuální přístup. Chápeme, že vaše auto není jen dopravní prostředek, ale odraz vašeho stylu. Naším cílem je překonat vaše očekávání a zajistit, aby váš vůz vypadal a cítil se naprosto dokonale.
+  </p>
+  <p>
+    Neustále se zdokonalujeme, používáme jen ty nejlepší produkty a nejmodernější techniky, abychom byli spolehlivým partnerem v péči o auta nejen v Nové Pace, ale po celé České republice. Objednejte se ještě dnes a přesvědčte se sami o rozdílu Vision Detailing!
   </p>
 </section>
 
-  <section class="gallery">
-  <h2>Ukázky práce</h2>
-  <div class="gallery-grid">
-    <img src="photo1.webp" alt="Ukázka 1">
-    <img src="photo2.jpeg" alt="Ukázka 2">
-    <img src="photo3.jpeg" alt="Ukázka 3">
+<section id="services" class="services">
+  <h2>Naše Služby: Kompletní Péče pro Každé Auto</h2>
+  <p class="section-description">Nabízíme širokou škálu detailingových služeb, od základní údržby až po kompletní renovaci. Vyberte si to pravé pro váš vůz!</p>
 
-    <img src="photo1.webp" alt="Ukázka 4" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 5" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 6" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 7" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 8" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 9" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 10" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 11" class="hidden-gallery-item">
-    <img src="photo1.webp" alt="Ukázka 12" class="hidden-gallery-item">
+  <div class="service-list">
+    <div class="service">
+      <h3><i class="fas fa-spray-can"></i> Keramická ochrana laku</h3>
+      <p>Dlouhodobá ochrana pro oslnivý lesk a snadnou údržbu. Ochrání váš lak před drobnými škrábanci a UV zářením.</p>
+    </div>
+    <div class="service">
+      <h3><i class="fas fa-couch"></i> Tepování interiéru</h3>
+      <p>Hloubkové čištění sedadel a koberců odstraní skvrny, zápach a alergeny pro svěží a čistý interiér.</p>
+    </div>
+    <div class="service">
+      <h3><i class="fas fa-car-side"></i> Leštění karoserie</h3>
+      <p>Odstranění škrábanců, hologramů a oxidace pro navrácení původního lesku a hloubky barvy laku.</p>
+    </div>
+    <div class="service">
+      <h3><i class="fas fa-shield-alt"></i> Ochrana skel a kol</h3>
+      <p>Speciální nátěry pro lepší viditelnost v dešti a snadné čištění kol od brzdného prachu a nečistot.</p>
+    </div>
+    <div class="service">
+      <h3><i class="fas fa-lightbulb"></i> Renovace světlometů</h3>
+      <p>Obnovení zažloutlých a matných světlometů pro zlepšení viditelnosti a celkového vzhledu vozu.</p>
+    </div>
+    <div class="service">
+      <h3><i class="fas fa-brush"></i> Detailing motorového prostoru</h3>
+      <p>Čištění a ošetření motorového prostoru pro dokonalý vzhled a snadnější detekci případných problémů.</p>
+    </div>
   </div>
-  <div style="text-align: center;">
-    <button id="showMoreBtn" class="cta">Zobrazit více</button>
-    <button id="showLessBtn" class="cta" style="display: none;">Zobrazit méně</button>
+
+  <div class="pricing-button-wrapper">
+    <a href="cenik.html" class="btn-pricing">Kompletní Ceník a Balíčky</a>
   </div>
 </section>
 
- <section id="contact" class="contact">
-    <h2>Kontakt</h2>
-    <p>Praha, Česká republika</p>
-    <p><a href="tel:+420123456789">+420 123 456 789</a> · <a href="mailto:info@visiondetailing.cz">info@visiondetailing.cz</a></p>
+<section id="gallery" class="gallery">
+  <h2>Ukázky Naší Práce: Před & Po</h2>
+  <p class="section-description">Podívejte se, jak dokážeme proměnit i ty nejvíce zanedbané vozy v umělecká díla.</p>
+  <div class="gallery-grid">
+    <img src="photo1.webp" alt="Auto před detailingem - špinavý exteriér">
+    <img src="photo2.jpeg" alt="Auto po detailing - zářivý lesk exteriéru">
+    <img src="photo3.jpeg" alt="Interiér vozu před tepováním - špinavé sedačky">
 
-    <div class="contact-form-container">
-      <h3>Napište nám</h3>
-      <form class="contact-form" action="#" method="POST">
-        <div class="form-group">
-          <input type="text" id="name" name="name" placeholder="Jméno a příjmení" required>
-        </div>
-        <div class="form-group">
-          <input type="tel" id="phone" name="phone" placeholder="Telefonní číslo">
-        </div>
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-          <select id="service" name="service" required>
-            <option value="">Vyberte službu</option>
-      <option value="exterier">Exteriér</option>
-      <option value="interier">Interiér</option>
-      <option value="lak">Renovace laku</option>
-      <option value="svetla">Renovace světel</option>
-      <option value="ppf">PPF fólie</option>
-      <option value="polepy">Polepy</option>
-          </select> 
-        </div>
-        <div class="form-group">
-          <textarea id="message" name="message" rows="5" placeholder="Vaše zpráva" required></textarea>
-        </div>
-        <button type="submit" class="cta">Odeslat</button>
-      </form>
+    <img src="photo4.webp" alt="Interiér vozu po tepování - čisté a svěží sedačky" class="hidden-gallery-item">
+    <img src="photo5.webp" alt="Zažloutlé světlomety před renovací" class="hidden-gallery-item">
+    <img src="photo6.webp" alt="Světlomety po renovaci - průzračné a jasné" class="hidden-gallery-item">
+    <img src="photo7.webp" alt="Detail kola před čištěním - znečištěné brzdným prachem" class="hidden-gallery-item">
+    <img src="photo8.webp" alt="Detail kola po čištění - perfektně čisté" class="hidden-gallery-item">
+    <img src="photo9.webp" alt="Motorový prostor před čištěním" class="hidden-gallery-item">
+    <img src="photo10.webp" alt="Motorový prostor po čištění" class="hidden-gallery-item">
+    <img src="photo11.webp" alt="Poškozený lak s drobnými škrábanci" class="hidden-gallery-item">
+    <img src="photo12.webp" alt="Lak po korekci a leštění - bezchybný zrcadlový lesk" class="hidden-gallery-item">
+  </div>
+  <div style="text-align: center; margin-top: 2rem;">
+    <button id="showMoreBtn" class="cta">Zobrazit Další Proměny</button>
+    <button id="showLessBtn" class="cta" style="display: none;">Zobrazit Méně</button>
+  </div>
+</section>
+
+<section id="reviews" class="reviews-section">
+  <h2>Co Říkají Naši Klienti</h2>
+  <p class="section-description">Spokojenost zákazníků je pro nás prioritou. Přečtěte si, co o nás říkají ti, kteří nám svěřili své vozy.</p>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="review-text">"Naprosto úžasná práce! Auto vypadá lépe než když vyjelo z fabriky. Velmi profesionální a pečlivý přístup. Určitě se vrátím!"</p>
+      <p class="reviewer-name">- Jan S., Škoda Octavia</p>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2601.991452909914!2d14.552032250198012!3d50.12992899463953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1scs!2scz!4v1744618001070!5m2!1scs!2scz" frameborder="0"></iframe>
-  </section>
+    <div class="review-card">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="review-text">"Interiér byl po tepování jako nový, zmizel veškerý zápach. Rychlé jednání a super výsledek. Doporučuji všem!"</p>
+      <p class="reviewer-name">- Petra K., Audi A4</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+      </div>
+      <p class="review-text">"Leštění laku udělali perfektně, všechny ty jemné škrábance jsou pryč. Trochu delší čekací doba, ale výsledek za to stál."</p>
+      <p class="reviewer-name">- Tomáš M., BMW X5</p>
+    </div>
+  </div>
+  <div class="pricing-button-wrapper" style="margin-top: 2rem;">
+      <a href="#contact" class="btn-pricing">Mám zájem o detailing</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Kontaktujte Nás: Nechte Své Auto Zazářit</h2>
+  <p class="section-description">Jsme připraveni odpovědět na vaše dotazy a naplánovat péči pro váš vůz.</p>
+  <p class="contact-info-line">
+    <i class="fas fa-map-marker-alt"></i> Praha, Česká republika
+  </p>
+  <p class="contact-info-line">
+    <i class="fas fa-phone"></i> <a href="tel:+420123456789">+420 123 456 789</a>
+    <i class="fas fa-envelope"></i> <a href="mailto:info@visiondetailing.cz">info@visiondetailing.cz</a>
+  </p>
+
+  <div class="contact-form-container">
+    <h3>Napište nám</h3>
+    <form class="contact-form" action="mailer.php" method="POST"> <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Vaše jméno a příjmení" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="phone" name="phone" placeholder="Telefonní číslo (např. +420 777 123 456)">
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Váš email" required>
+      </div>
+      <div class="form-group">
+        <select id="service" name="service" required>
+          <option value="">Vyberte požadovanou službu</option>
+          <option value="exterier">Exteriér (leštění, keramika)</option>
+          <option value="interier">Interiér (tepování, čištění)</option>
+          <option value="lak">Kompletní renovace laku</option>
+          <option value="svetla">Renovace světlometů</option>
+          <option value="ppf">Ochranná fólie PPF</option>
+          <option value="polepy">Designové polepy</option>
+          <option value="jine">Jiné / Nezávazná konzultace</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" rows="5" placeholder="Napište nám, co pro vaše auto můžeme udělat (rok výroby vozu, typ vozu, jakou službu potřebujete apod.)" required></textarea>
+      </div>
+      <button type="submit" class="cta">Odeslat Nezávaznou Poptávku</button>
+    </form>
+  </div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2601.991452909914!2d14.552032250198012!3d50.12992899463953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1scs!2scz!4v1744618001070!5m2!1scs!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
 
 <footer>
-    <p>© 2025 Vision Detailing</p>
-    <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
+  <p>© 2025 Vision Detailing. Všechna práva vyhrazena.</p>
+  <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
 </footer>
-  <script src="script.js"></script>
 
+<script src="script.js"></script>
 </body>
 </html>
