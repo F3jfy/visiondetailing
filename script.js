@@ -11,16 +11,17 @@ menuToggle.addEventListener('click', () => {
 // Handle clicks on navigation links
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function(e) {
-    // Check if the link has a hash (i.e., it's an anchor link to a section)
-    if (this.hash !== '') {
-      e.preventDefault(); // Prevent the default instant jump
+    // Determine if the link is an internal anchor on the current page
+    const isInternalLink = this.pathname === window.location.pathname && this.hash !== '';
+
+    if (isInternalLink) {
+      e.preventDefault(); // Prevent the default instant jump for internal anchors
 
       const targetId = this.hash; // e.g., "#services"
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
         // Calculate the offset to account for the fixed navbar
-        // Get the navbar's current height dynamically
         const navbarHeight = document.querySelector('.navbar').offsetHeight;
         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - navbarHeight;
@@ -32,11 +33,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         });
       }
     }
+    // If it's NOT an internal link (e.g., index.html#hero), we do NOT preventDefault().
+    // The browser will handle the navigation to the new page and its hash.
 
     // Always close the mobile menu after a link is clicked,
     // regardless if it's a smooth scroll link or an external link
-    navLinks.classList.remove('active');
-    menuToggle.classList.remove('active');
+    // This needs to happen AFTER the potential preventDefault, but should always happen.
+    // Delaying it slightly might help ensure the click event has fully processed
+    // before the menu disappears, which is less critical for page changes but good practice.
+    setTimeout(() => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    }, 100); // Small delay to ensure click is registered before menu hides
   });
 });
 
