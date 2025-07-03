@@ -1,19 +1,46 @@
+// Get references to your menu elements
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
+// Toggle mobile menu visibility
 menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
   menuToggle.classList.toggle('active');
 });
 
+// Handle clicks on navigation links
 document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', function(e) {
+    // Check if the link has a hash (i.e., it's an anchor link to a section)
+    if (this.hash !== '') {
+      e.preventDefault(); // Prevent the default instant jump
+
+      const targetId = this.hash; // e.g., "#services"
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        // Calculate the offset to account for the fixed navbar
+        // Get the navbar's current height dynamically
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        // Perform the smooth scroll
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Always close the mobile menu after a link is clicked,
+    // regardless if it's a smooth scroll link or an external link
     navLinks.classList.remove('active');
     menuToggle.classList.remove('active');
   });
 });
 
-// In your script.js
+// --- Gallery Show More/Less Functionality (Keep this as is) ---
 document.addEventListener("DOMContentLoaded", function () {
   const showMoreBtn = document.getElementById("showMoreBtn");
   const showLessBtn = document.getElementById("showLessBtn");
@@ -21,8 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showMoreBtn.addEventListener("click", () => {
     hiddenGalleryItems.forEach(item => {
-      item.style.display = "block"; // Make it block first to allow max-height transition
-      // Use requestAnimationFrame to ensure display change takes effect before adding class
+      item.style.display = "block";
       requestAnimationFrame(() => {
         item.classList.add("show-item");
       });
@@ -33,12 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showLessBtn.addEventListener("click", () => {
     hiddenGalleryItems.forEach(item => {
-      item.classList.remove("show-item"); // Start the collapse animation
-      // Listen for the end of the transition, then set display: none
+      item.classList.remove("show-item");
       item.addEventListener('transitionend', function handler() {
-        if (!item.classList.contains('show-item')) { // Only hide if it's truly collapsed
+        if (!item.classList.contains('show-item')) {
           item.style.display = "none";
-          item.removeEventListener('transitionend', handler); // Remove listener to prevent multiple calls
+          item.removeEventListener('transitionend', handler);
         }
       });
     });
