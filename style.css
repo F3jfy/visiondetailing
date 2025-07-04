@@ -81,7 +81,7 @@
     font-size: 2rem;
     cursor: pointer;
     user-select: none;
-    color: #111;
+    color: #000000;
     transition: color 0.3s ease;
     position: relative;
     z-index: 3000;
@@ -133,8 +133,8 @@
         margin: 0 auto;
         padding: 0.8rem 1rem;
         border-radius: 25px;
-        background: #111;
-        color: #fff;
+        background: #f3f3f3;
+        color: #000000;
         font-weight: 600;
         text-align: center;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -170,6 +170,7 @@
   }
   /* Updated: CTA Button - Scale and Shadow */
   .cta {
+
     display: inline-block;
     margin-top: 1rem;
     padding: 0.7rem 1.5rem;
@@ -299,7 +300,7 @@
     margin-bottom: 0.5rem;
   }
   iframe {
-  width: 100%; /* Ensures it takes full available width */
+  width: 90%; /* Ensures it takes full available width */
   height: 300px;
   margin-top: 1rem;
   border-radius: 10px;
@@ -326,6 +327,7 @@
 
 
 .btn-pricing {
+  width: 90%;
   display: block; /* Změněno z inline-block na block, aby se mohlo centrovat marginem */
   margin: 2rem auto 0 auto; /* Vycentruje tlačítko a přidá horní okraj */
   padding: 0.75rem 2rem;
@@ -471,6 +473,7 @@
 
 /* Contact Form Styling - More Prominent */
 .contact-form-container {
+  width: 90%;
   background: #ffffff; /* Keep the background white as requested */
   padding: 2.8rem;
   border-radius: 16px;
@@ -559,7 +562,7 @@
 
 /* Submit Button Styling - ALREADY PURPLE, GOOD! */
 .contact-form .cta {
-  width: 100%;
+  width: 90%;
   max-width: 350px;
   display: block;
   margin-left: auto;
