@@ -11,14 +11,15 @@
   }
   body {
     padding-top: 80px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     font-family: 'Inter', sans-serif;
     background: #ffffff;
     color: #111;
     line-height: 1.6;
     overflow-x: hidden;
+     width: 100%;
   }
   .logo img {
     height: 40px; /* uprav podle potřeby */
@@ -1006,6 +1007,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Pro případné přesahy obrázku */
+      width: 100%; /* Explicitly ensure it's 100% of its parent (body/html) */
+
   
 }
 .hero-content {
@@ -1442,21 +1445,27 @@
 /* --- Floating Bubbles CSS --- */
 
 /* Ensure your existing #hero has these: */
+/* Ensure your existing #hero has these: */
 #hero {
-    position: relative; /* ESSENTIAL for positioning bubbles */
-    overflow: hidden;   /* ESSENTIAL for hiding bubbles outside the section */
-    /* ... keep all your other existing #hero styles here (height, background, etc.) */
+    position: relative;
+    width: 100%;
+    overflow: hidden !important; /* Critical for containing the bubbles */
+    /* ... keep all your other existing #hero styles here */
 }
 
+/* New/Adjusted styles for the bubbles-container */
 .bubbles-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    /* Make it wider than the viewport */
+    width: 104vw; /* 100vw + 4vw */
+    /* Shift it left by half of the extra width to center it */
+    left: -2vw; /* Half of 4vw */
+    
+    height: 100%; /* Remains 100% of parent #hero height */
     top: 0;
-    left: 0;
     z-index: 0; /* Ensures bubbles are behind content */
     pointer-events: none; /* Allows clicks to pass through to content */
-    overflow: hidden; /* Critical for containing the bubbles */
+    overflow: hidden; /* Critical for containing the bubbles themselves */
 }
 
 .bubble {
