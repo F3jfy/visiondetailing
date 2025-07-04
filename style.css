@@ -1470,12 +1470,27 @@
 
 .bubble {
     position: absolute;
-    /* bottom will be set randomly by JavaScript, so remove it from here */
-    background-color: rgba(255, 255, 255, 0.3); /* White, more transparent bubbles */
+    /* 'bottom' will be set randomly by JavaScript */
     border-radius: 50%;
-    opacity: 1; /* Bubbles now appear instantly visible */
-    animation: bubble-float infinite ease-in-out; /* Base animation, JS will add specifics */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    opacity: 1; /* Appear instantly */
+    animation: bubble-float infinite ease-in-out; /* Base animation, JS adds specifics */
+    
+    /* --- NEW/UPDATED STYLES FOR BUBBLY LOOK --- */
+    /* Base purple color is now set by JS with varying transparency */
+    
+    /* Subtle inner glow/highlight for depth */
+    box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.5), /* Inner highlight */
+        0 0 10px rgba(0, 0, 0, 0.1); /* Subtle outer shadow for separation */
+    
+    /* Gradient to simulate light reflection on a sphere */
+    /* The first color matches what JS sets for background-color (purple) */
+    /* The second color is a lighter/more saturated version for the highlight */
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                var(--bubble-bg-color, hsla(270, 70%, 70%, 0.4)); /* Default if JS not loaded/overridden */
+    
+    /* Add a subtle, slightly lighter border */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Lighter border for definition */
 }
 
 /* --- Keyframe Animation --- */
