@@ -1464,7 +1464,6 @@
 /* --- Floating Bubbles CSS --- */
 
 /* Ensure your existing #hero has these: */
-/* Ensure your existing #hero has these: */
 #hero {
     position: relative;
     width: 100%;
@@ -1472,55 +1471,66 @@
     /* ... keep all your other existing #hero styles here */
 }
 
-/* New/Adjusted styles for the bubbles-container */
 .bubbles-container {
     position: absolute;
-    /* Make it wider than the viewport */
-    width: 104vw; /* 100vw + 4vw */
-    /* Shift it left by half of the extra width to center it */
-    left: -2vw; /* Half of 4vw */
-    
-    height: 100%; /* Remains 100% of parent #hero height */
+    width: 104vw; /* Wider than viewport to cover edges */
+    left: -2vw;  /* Offset to center the wider container */
+
+    height: 100%;
     top: 0;
     z-index: 0; /* Ensures bubbles are behind content */
     pointer-events: none; /* Allows clicks to pass through to content */
     overflow: hidden; /* Critical for containing the bubbles themselves */
+
+    /* --- NEW: Gradient Mask for appearing effect --- */
+    /* This creates a mask that is transparent at the bottom and gradually becomes opaque */
+    mask-image: linear-gradient(to top, transparent 0%, black 15%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+    /* You can adjust '15%' to control how high the fade-in zone is */
 }
 
 .bubble {
     position: absolute;
-    /* 'bottom' will be set randomly by JavaScript */
     border-radius: 50%;
-    opacity: 1; /* Appear instantly */
+    opacity: 0; /* Still starts with opacity 0 for the fade-in animation within the bubble itself */
     animation: bubble-float infinite ease-in-out; /* Base animation, JS adds specifics */
-    
-    /* --- NEW/UPDATED STYLES FOR BUBBLY LOOK --- */
-    /* Base purple color is now set by JS with varying transparency */
-    
-    /* Subtle inner glow/highlight for depth */
-    box-shadow: 
+
+    /* --- Styles for Bubbly Look --- */
+    box-shadow:
         inset 0 0 15px rgba(255, 255, 255, 0.5), /* Inner highlight */
         0 0 10px rgba(0, 0, 0, 0.1); /* Subtle outer shadow for separation */
-    
-    /* Gradient to simulate light reflection on a sphere */
-    /* The first color matches what JS sets for background-color (purple) */
-    /* The second color is a lighter/more saturated version for the highlight */
+
     background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                var(--bubble-bg-color, hsla(270, 70%, 70%, 0.4)); /* Default if JS not loaded/overridden */
-    
-    /* Add a subtle, slightly lighter border */
-    border: 1px solid rgba(255, 255, 255, 0.6); /* Lighter border for definition */
+                var(--bubble-bg-color, hsla(270, 70%, 70%, 0.4));
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* --- Global Styles to Prevent Horizontal Overflow --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden !important;
+    min-width: 0;
 }
 
 /* --- Keyframe Animation --- */
+/* No changes needed here, as the mask handles the entry fade. */
+/* The keyframe's opacity animation ensures they fade out at the top. */
 @keyframes bubble-float {
-    /* 0% now just defines initial transform, opacity is handled by JS for instant appearance */
     0% {
         transform: translate(0, 0) scale(1);
+        opacity: 0; /* Still starts invisible in case mask isn't supported, or for consistency */
+    }
+    10% {
+        opacity: 1; /* Fade in during the first 10% of animation duration */
+    }
+    90% {
+        opacity: 1;
     }
     100% {
-        /* Custom properties for randomness set by JS */
-        transform: translate(var(--x-end), var(--y-end)) scale(var(--scale-end)); /* Added --y-end */
-        opacity: 0; /* Disappear at the top */
+        transform: translate(var(--x-end), var(--y-end)) scale(var(--scale-end));
+        opacity: 0; /* Fade out at the end */
     }
 }

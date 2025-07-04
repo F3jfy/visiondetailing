@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const minAnimationDuration = 5; // seconds
     const maxAnimationDuration = 15; // seconds
     const minAnimationDelay = 0; // seconds
-    const maxAnimationDelay = 0; // seconds
+    const maxAnimationDelay = 5; // seconds (Increased this to stagger the appearances)
     const maxHorizontalDrift = 150; // pixels for random horizontal movement
 
     const minStartOffset = -50; // Pixels below/above the viewport bottom
@@ -216,26 +216,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const size = Math.random() * (maxBubbleSize - minBubbleSize) + minBubbleSize;
         const duration = Math.random() * (maxAnimationDuration - minAnimationDuration) + minAnimationDuration;
-        const delay = Math.random() * (maxAnimationDelay - minAnimationDelay) + minAnimationDelay;
+        const delay = Math.random() * (maxAnimationDelay - minAnimationDelay) + minAnimationDelay; // Now will generate a delay up to 5 seconds
         const initialLeft = Math.random() * 95;
 
         const startBottom = Math.random() * (maxStartOffset - minStartOffset) + minStartOffset;
 
         const horizontalDrift = (Math.random() * 2 - 1) * maxHorizontalDrift;
         const endScale = 1 + (Math.random() * 0.6 - 0.3);
-        
-        // --- CHANGE FOR PURPLE COLOR ---
-        // Using a purple color with varying transparency
-        // You can use a specific HEX code like #8A2BE2 for Blue Violet,
-        // or RGB/HSL for more control.
-        // Here's an example using HSL for a nice purple with varying lightness/saturation
-        const hue = 270; // A purple hue
-        const saturation = 50 + Math.random() * 30; // Between 50% and 80%
-        const lightness = 60 + Math.random() * 20; // Between 60% and 80% (for lighter purple)
-        const transparency = 0.2 + Math.random() * 0.4; // Between 0.2 and 0.6
 
-        bubble.style.backgroundColor = `hsla(${hue}, ${saturation}%, ${lightness}%, ${transparency})`;
-        // --- END CHANGE FOR PURPLE COLOR ---
+        const hue = 270 + (Math.random() * 20 - 10);
+        const saturation = 60 + Math.random() * 30;
+        const lightness = 65 + Math.random() * 15;
+        const transparency = 0.2 + Math.random() * 0.4;
+
+        bubble.style.setProperty('--bubble-bg-color', `hsla(${hue}, ${saturation}%, ${lightness}%, ${transparency})`);
 
         bubble.style.width = `${size}px`;
         bubble.style.height = `${size}px`;
