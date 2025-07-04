@@ -208,6 +208,16 @@
   max-width: 900px; /* Omezí šířku mřížky, aby se vycentrovala */
   margin: 0 auto; /* Vycentruje samotnou mřížku služeb */
 }
+.services .service h3 i {
+  font-size: 1.5rem;
+  color: #cb6ce6; /* Ponecháme fialovou nebo změníme na #111 */
+  transition: color 0.3s ease; /* Přidáme přechod pro barvu ikony */
+  
+}
+.service:hover h3,
+.service:hover h3 i { /* Když najedeme na kartu, změní se barva nadpisu a ikony */
+  color: #ffffff; /* Změní barvu textu a ikony na bílou */
+}
 
 @media (max-width: 768px) { /* Od tohoto breakpointu níže se změní rozložení */
   .service-list {
@@ -215,6 +225,7 @@
     grid-template-columns: 1fr;
     padding: 0 1rem; /* Může přidat malé odsazení na okrajích */
   }
+  
 }
 
 /* Starší @media (max-width: 600px) už není potřeba pro service-list,
@@ -1124,6 +1135,7 @@
 }
 
 .review-card {
+  width: 90%;
   background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -1142,7 +1154,7 @@
 }
 
 .review-card .stars {
-  color: #FFD700; /* Zlatá barva pro hvězdičky */
+  color: #cf1ed8; /* Zlatá barva pro hvězdičky */
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
