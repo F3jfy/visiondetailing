@@ -359,6 +359,7 @@
     scroll-behavior: smooth;
   }
   .about-section {
+    width: 90%;
     padding: 4rem 2rem 2.5rem 2rem;
     background: #f0f0f0; /* jemně fialové pozadí */
     border-radius: 12px;
@@ -1251,7 +1252,7 @@
 /* Při HOVERU na CELOU KARTU .service */
 .service:hover h3,
 .service:hover h3 i { /* Když najedeme na kartu, změní se barva nadpisu a ikony */
-  color: #000000; /* Změní barvu textu a ikony na bílou */
+  color: #ffffff; /* Změní barvu textu a ikony na bílou */
 }
   .services .service p {
     font-size: 0.9rem;
@@ -1300,6 +1301,7 @@
 
 /* --- Centrování popisků sekcí --- */
 .section-description {
+  width: 90%;
   text-align: center;
   max-width: 700px; /* Omezí šířku popisku pro lepší čitelnost */
   margin: 0.5rem auto 3rem auto; /* Vycentruje blokový prvek a přidá okraje */
