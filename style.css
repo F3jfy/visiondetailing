@@ -995,6 +995,7 @@
 
 /* --- Hero sekce vylepšení --- */
 #hero {
+  z-index: 1;
   padding-top: 80px; /* Aby se nepřekrýval s navbarem */
   text-align: center;
   margin-bottom: 5rem;
@@ -1005,6 +1006,11 @@
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Pro případné přesahy obrázku */
+  
+}
+.hero-content {
+    z-index: 1; /* Ensures content is above bubbles */
+    text-align: center;
 }
 
 #hero h1 {
@@ -1430,4 +1436,48 @@
   .section-heading {
     font-size: 1.8rem;
   }
+}
+
+
+/* --- Floating Bubbles CSS --- */
+
+/* Ensure your existing #hero has these: */
+#hero {
+    position: relative; /* ESSENTIAL for positioning bubbles */
+    overflow: hidden;   /* ESSENTIAL for hiding bubbles outside the section */
+    /* ... keep all your other existing #hero styles here (height, background, etc.) */
+}
+
+.bubbles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Ensures bubbles are behind content */
+    pointer-events: none; /* Allows clicks to pass through to content */
+    overflow: hidden; /* Critical for containing the bubbles */
+}
+
+.bubble {
+    position: absolute;
+    /* bottom will be set randomly by JavaScript, so remove it from here */
+    background-color: rgba(255, 255, 255, 0.3); /* White, more transparent bubbles */
+    border-radius: 50%;
+    opacity: 1; /* Bubbles now appear instantly visible */
+    animation: bubble-float infinite ease-in-out; /* Base animation, JS will add specifics */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glow */
+}
+
+/* --- Keyframe Animation --- */
+@keyframes bubble-float {
+    /* 0% now just defines initial transform, opacity is handled by JS for instant appearance */
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        /* Custom properties for randomness set by JS */
+        transform: translate(var(--x-end), var(--y-end)) scale(var(--scale-end)); /* Added --y-end */
+        opacity: 0; /* Disappear at the top */
+    }
 }
