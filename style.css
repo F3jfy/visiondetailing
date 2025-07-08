@@ -1591,3 +1591,356 @@ html, body {
 .contact-info-line.social-icons a:hover {
   color: #007bff;
 }
+
+
+
+
+
+
+
+
+
+
+
+.text-center {
+    text-align: center;
+}
+
+
+/* --- Globální styly pro sekce a text (klíčové pro Ceník) --- */
+.cenik {
+    max-width: 1000px; /* Sjednocená maximální šířka pro obsah */
+    margin: 0 auto 6rem auto; /* Sjednocené mezery mezi sekcemi */
+    padding: 0 2rem; /* Sjednocené vnitřní polstrování */
+}
+
+/* Nadpisy v sekci Ceník */
+.cenik .nadpis-sekce-hlavni {
+    font-size: 2.8rem; /* Větší nadpisy sekcí */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+.cenik .nadpis-kategorie {
+    font-size: 2.2rem; /* Větší podnadpisy sekcí */
+    margin-bottom: 1.2rem;
+    color: #cb6ce6; /* Změněno na fialovou */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+/* Popisný text pod nadpisy sekcí */
+.popis-sekce {
+    font-size: 1.15rem;
+    color: #555;
+    text-align: center;
+    max-width: 700px;
+    margin: 0.8rem auto 4rem auto; /* Větší mezery */
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Speciální zarovnání pro popisek kategorie */
+.kategorie-popis {
+    text-align: center; /* Vždy na střed na mobilu */
+}
+@media (min-width: 768px) {
+    .kategorie-popis {
+        text-align: left; /* Na desktopu vlevo */
+    }
+}
+
+/* Kontejner pro max. šířku obsahu */
+.kontejner-sirka-obsahu {
+    max-width: 1000px; /* Stejná jako .cenik, pro konzistenci */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* --- Sekce Ceník - Seznam balíčků (Grid) --- */
+.seznam-balicku {
+    display: grid;
+    gap: 2.5rem; /* Větší mezera mezi kartami */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responzivní 2 sloupce */
+    max-width: 900px; /* Omezí šířku mřížky, aby se vycentrovala */
+    margin: 0 auto 4rem auto; /* Vycentruje mřížku služeb */
+}
+
+/* Základní styl pro každou kartu služby/balíčku */
+.polozka-sluzby {
+    background: #ffffff; /* Čistě bílé pozadí */
+    padding: 2rem; /* Větší polstrování */
+    border-radius: 12px; /* Zaoblenější rohy */
+    border: 1px solid #e0e0e0; /* Jemný, světle šedý okraj */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    color: #333; /* Původní barva textu */
+    user-select: none;
+    display: flex; /* Použito pro flexbox uvnitř karty */
+    flex-direction: column;
+    justify-content: space-between; /* Obsah se roztáhne a tlačítko bude dole */
+}
+
+/* Hover efekt pro karty služeb/balíčků */
+.polozka-sluzby:hover {
+    /* background-color: #cb6ce6;  Tuto linku odstraňujeme, aby se zachovalo bílé pozadí */
+    /* color: #fff;  Tuto linku odstraňujeme, aby se zachovala původní barva textu */
+    transform: translateY(-8px); /* Výraznější zvednutí karty */
+    box-shadow: 0 15px 30px rgba(203, 108, 230, 0.35); /* Výraznější purpurový stín */
+    border-color: #a955d1; /* Tmavší purpurový okraj */
+}
+
+/* Nadpisy uvnitř karet balíčků */
+.polozka-sluzby h3 {
+    font-size: 1.7rem; /* Větší nadpis */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #cb6ce6; /* Změněno na fialovou */
+    transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Speciální barva pro Vnitřek (Interior) balíček (karta) */
+.balicek-karta.vnitrek {
+    background-color: #f8f8ff; /* Velmi jemná, světle fialová */
+    border-color: #d8d8ff; /* Odpovídající okraj */
+    color: #5d5db8; /* Jemnější fialový text */
+}
+
+/* Hover efekt pro Vnitřek balíček (text v kartě) */
+
+/* Styly pro text s cenou a dobou */
+.informace-cena,
+.informace-doba {
+    font-size: 1.15rem; /* Mírně větší písmo */
+    font-weight: 600;
+    color: #cb6ce6; /* Purpurová barva pro ceny */
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.polozka-sluzby:hover .informace-cena,
+.polozka-sluzby:hover .informace-doba {
+    color: #cb6ce6; /* Původní barva */
+}
+
+/* Styly pro popisný text uvnitř karet */
+.text-popisku {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    flex-grow: 1; /* Zajistí, že popisek zaplní dostupný prostor */
+    font-family: 'Inter', sans-serif;
+}
+
+.polozka-sluzby:hover .text-popisku {
+    color: #555; /* Původní barva */
+}
+
+/* Styly pro seznamy v kartách */
+.polozka-sluzby ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem; /* Větší odsazení pro odrážky */
+    list-style: disc;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.polozka-sluzby:hover ul {
+    color: #555; /* Původní barva */
+}
+
+.polozka-sluzby ul li {
+    margin-bottom: 0.4rem;
+}
+
+/* --- Tlačítko uvnitř karet (tlacitko-objednavka) --- */
+.tlacitko-objednavka {
+    width: 90%; /* Zůstává široké na kartě */
+    display: block;
+    margin: 1.5rem auto 0 auto; /* Vycentrování a horní okraj */
+    padding: 0.8rem 2rem; /* Větší polstrování */
+    background-color: #cb6ce6;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 30px; /* Kulatější */
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(203, 108, 230, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    font-size: 1.05rem; /* Trochu větší písmo */
+    white-space: nowrap; /* Zabrání zalamování textu */
+    font-family: 'Inter', sans-serif;
+}
+
+.tlacitko-objednavka:hover,
+.tlacitko-objednavka:focus {
+    background-color: #a955d1;
+    box-shadow: 0 8px 20px rgba(169, 85, 209, 0.5);
+    transform: translateY(-4px);
+    outline: none;
+}
+
+/* --- Doplňkové služby k interiéru (doplnky-box) --- */
+.doplnky-box {
+    background-color: #ffffff; /* Čistě bílé pozadí */
+    border-radius: 12px; /* Zaoblené rohy */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Jemný stín */
+    padding: 2.5rem; /* Větší polstrování */
+    margin-bottom: 4rem; /* Mezera pod boxem */
+    text-align: center;
+    border: 1px solid #e0e0e0; /* Jemný okraj */
+}
+
+.doplnky-box h4 {
+    font-size: 2rem; /* Větší nadpis */
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.doplnky-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.doplnky-box ul li {
+    font-size: 1.15rem; /* Větší písmo */
+    color: #555;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+}
+
+.doplnky-box ul li strong {
+    font-weight: 700;
+    color: #333; /* Tmavší pro důraz */
+}
+
+.doplnky-box ul li .hodnota-ceny {
+    font-weight: 800; /* Extra tučnost pro cenu */
+    color: #cb6ce6; /* Purpurová barva */
+    font-size: 1.25rem; /* Větší písmo pro cenu */
+}
+
+/* --- Sekce Exteriér (sekce-vnejsku) --- */
+.sekce-vnejsku {
+    background-color: #ffffff; /* Čistě bílé pozadí */
+    border-radius: 12px; /* Zaoblené rohy */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Jemný stín */
+    padding: 2.5rem; /* Větší polstrování */
+    display: flex;
+    flex-direction: column; /* Mobile first: pod sebou */
+    gap: 2.5rem; /* Větší mezera mezi obrázkem a textem */
+    align-items: center; /* Centruje obsah vertikálně na mobilu */
+    border: 1px solid #e0e0e0; /* Jemný okraj */
+    margin-bottom: 6rem; /* Mezera pod sekcí */
+}
+
+@media (min-width: 768px) { /* Tablet a desktop */
+    .sekce-vnejsku {
+        flex-direction: row; /* Vedle sebe */
+        text-align: left; /* Text se zarovná doleva */
+    }
+}
+
+.sekce-vnejsku .obal-obrazku {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .sekce-vnejsku .obal-obrazku {
+        width: 50%; /* Obrázek zabere polovinu šířky na desktopu */
+    }
+}
+
+.sekce-vnejsku .obal-obrazku img {
+    border-radius: 10px; /* Zaoblené rohy obrázku */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Jemný stín obrázku */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.sekce-vnejsku .obal-obsahu {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .sekce-vnejsku .obal-obsahu {
+        width: 50%; /* Text zabere polovinu šířky na desktopu */
+    }
+}
+
+/* --- Responzivní úpravy pro mobilní zobrazení v sekci Ceník --- */
+@media (max-width: 600px) {
+    /* Nadpisy v sekci Ceník na mobilu */
+    .cenik .nadpis-sekce-hlavni {
+        font-size: 2rem;
+    }
+    .cenik .nadpis-kategorie {
+        font-size: 1.8rem;
+    }
+    .popis-sekce {
+        font-size: 1rem;
+        margin: 0.5rem auto 2.5rem auto;
+    }
+
+    /* Úpravy pro mobilní zobrazení karet balíčků */
+    .seznam-balicku {
+        display: block; /* Karty pod sebou */
+        margin-bottom: 2rem;
+        padding: 0;
+        width: 100%;
+    }
+    .polozka-sluzby {
+        width: calc(100% - 2rem); /* Šířka karty s odsazením */
+        max-width: 400px; /* Maximální šířka karty na mobilu */
+        padding: 1.5rem;
+        margin: 0 auto 1.5rem auto; /* Vycentrování a mezera */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .polozka-sluzby h3 {
+        font-size: 1.4rem;
+    }
+    .tlacitko-objednavka {
+        width: 100%;
+        max-width: 300px; /* Maximální šířka tlačítka na mobilu */
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+    /* Úpravy pro mobilní zobrazení příplatků */
+    .doplnky-box {
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    .doplnky-box h4 {
+        font-size: 1.6rem;
+    }
+    .doplnky-box ul li {
+        font-size: 1rem;
+    }
+    .doplnky-box ul li .hodnota-ceny {
+        font-size: 1.1rem;
+    }
+
+    /* Úpravy pro mobilní zobrazení sekce Exteriér */
+    .sekce-vnejsku {
+        padding: 1.8rem;
+        margin-bottom: 4rem;
+        gap: 1.8rem;
+    }
+}
