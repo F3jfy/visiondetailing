@@ -1106,7 +1106,9 @@
 }
 
 .main-hero-image {
-    max-width: 90%;
+  width: 90%;
+  max-width: 1000px;
+    
     height: auto;
     border-radius: 12px;
     margin-top: 3rem; /* Mezera mezi textem a obrázkem */
