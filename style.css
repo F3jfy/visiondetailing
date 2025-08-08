@@ -1278,6 +1278,7 @@
   .review-grid {
     grid-template-columns: 1fr; /* Jeden sloupec na mobilu */
     padding: 0 1rem;
+    justify-items: center;
   }
 
   .contact-info-line {
